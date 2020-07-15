@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/home.css">
-</head>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
 <body>
-    <form action="{% url 'result' %}">
-        <textarea name="text"></textarea>
-        <br>
-        <input type="submit" value="전송" />
-    </form>
+    <div class="header">
+        <p>WordCounter</p>
+    </div>
+    
+    <div class="textarea-box">
+        <form action="{% url 'result' %}">
+            <input type="text" name="text" placeholder="문장을 입력해주세요"/>
+            <br>
+            <input type="submit" value="전송" />
+        </form>
+    </div>
 </body>
 </html>
