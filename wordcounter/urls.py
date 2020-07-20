@@ -20,7 +20,8 @@ import wordcount.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',wordcount.views.home, name="home"),
+    path('',wordcount.views.post, name="post"),
     path('result/',wordcount.views.result, name="result"),
-    path('blog/',wordcount.views.blog, name="blog")
+    path('blog/',wordcount.views.blog, name="blog"),
+    path('create/',wordcount.views.create, name="create")
 ]

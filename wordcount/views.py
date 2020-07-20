@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+
 from .models import Blog
+from django.utils import timezone
 
 # Create your views here.
 
@@ -25,3 +27,14 @@ def result(request):
 
 def blog(request):
     return render(request,'blog.html',{'blog':Blog.objects})
+
+def post(request):
+    return render(request,'post.html')
+
+def create(request):
+    blog = Blog()
+    blog.title = request.GET['title']
+    blog.body = request.GET['body']
+    blog.pub_date = timezone.datetime.now()
+    blog.save()
+    return redirect('/blog/')
